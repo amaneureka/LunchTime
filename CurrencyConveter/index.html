@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+        <meta charset="utf-8">
+        <title>Currency Converter : Aman Priyadarshi</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+        <style>        
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                width: 100%;
+                background-color: #E6F1F6;
+            }
+            .form-row {
+                margin-left: auto;
+                margin-right: auto;                
+                margin-top: 5px;
+                width: 100%;
+            }
+            html, .container {
+                height: 100%;
+            }
+            .container {
+                display: table;
+                vertical-align: middle;
+            }
+            .vertical-center-row {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        </style>        
+   </head>
+   <body>
+   <div class="modal fade" id="CurrModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Select Your Currency</h4>
+                </div>
+                <div class="modal-body">
+                                        <div class="row" style="margin-left:10px;margin-right:10px;">
+                        <div class="btn-group" role="group" style="width:100%;">
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="AUD">AUD</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="BGN">BGN</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="BRL">BRL</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="CAD">CAD</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="CHF">CHF</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="CNY">CNY</button>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left:10px;margin-right:10px;">
+                        <div class="btn-group" role="group" style="width:100%;">
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="CZK">CZK</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="DKK">DKK</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="GBP">GBP</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="HKD">HKD</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="HRK">HRK</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="HUF">HUF</button>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left:10px;margin-right:10px;">
+                        <div class="btn-group" role="group" style="width:100%;">
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="IDR">IDR</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="ILS">ILS</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="INR">INR</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="JPY">JPY</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="KRW">KRW</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="MXN">MXN</button>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left:10px;margin-right:10px;">
+                        <div class="btn-group" role="group" style="width:100%;">
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="MYR">MYR</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="NOK">NOK</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="NZD">NZD</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="PHP">PHP</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="PLN">PLN</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="RON">RON</button>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left:10px;margin-right:10px;">
+                        <div class="btn-group" role="group" style="width:100%;">
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="RUB">RUB</button>
+                            <button type="button" class="btn btn-default col-md-2 CurrBtn" value="SEK">SEK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="container">
+        <div class="row vertical-center-row">
+            <div class="col-lg-12">
+                <div class="row ">
+                    <div class="col-xs-4 col-xs-offset-4">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Currency Converter</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="error" class="alert alert-danger" role="alert" hidden>Something Went Wrong</div>
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-success" id="FromCurrBtn" type="button" value="USD" data-toggle="modal" data-target="#CurrModal" style="width:60px;">USD</button>
+                                        </span>
+                                        <input id="FromCurr" value="1.00" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency">
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-danger" id="ToCurrBtn" type="button" value="INR" data-toggle="modal" data-target="#CurrModal" style="width:60px;">INR</button>
+                                        </span>
+                                        <input id="ToCurr" value="0.00" min="0" step="1.00" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    </body>
+</html>
